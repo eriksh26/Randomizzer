@@ -1,0 +1,320 @@
+:root {
+  --background-color: rgb(222, 222, 222);
+}
+
+#spin-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  transform: translateY(-2rem);
+}
+
+#spin-container div {
+  margin: 1rem;
+}
+
+#editItems-container {
+  overflow-y: scroll;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.container {
+  background-color: rgb(154, 46, 226);
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .spin-btn {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border: 2px solid rgba(0, 0, 0, 0.334);
+}
+
+circle::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  width: 20px;
+  height: 30px;
+  background-color: rgb(243, 0, 0);
+  clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+
+.container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #333, 0 0 0 16px #12f647, 0 0 0 18px #111;
+}
+
+.container .wheel .wheel-item {
+  border: 5px solid rgb(249, 210, 18);
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: var(--color);
+  transform-origin: bottom right;
+  clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300;
+  height: 200;
+}
+
+#editItems {
+  display: none;
+}
+
+#add-item-wrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  animation-name: rise-up;
+  animation-duration: 1s;
+
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+#addItem {
+  display: flex;
+  flex-direction: column;
+  background: rgb(240, 240, 240);
+  padding: 2rem 3rem;
+  border-radius: 8px;
+}
+
+#addItem label {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(105, 105, 105);
+  margin-bottom: 15px;
+}
+
+#addItem input {
+  width: 12rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgb(249, 238, 238);
+  box-shadow: inset 10px 10px 10px rgba(10, 99, 169, 0.1),
+    inset -10px -10px 10px rgb(230, 230, 230);
+  font-size: 18px;
+  color: rgb(105, 105, 105);
+  font-weight: 700;
+}
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheel-container #edit-btn {
+  border: none;
+  border-radius: 8px;
+  background: rgb(190, 236, 245);
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+}
+
+.wheel-container #edit-btn:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  box-shadow: inset 10px 10px 10px rgba(10, 99, 169, 0.1),
+    inset -10px -10px 10px rgb(209, 233, 248);
+}
+
+.wheel-container #edit-btn img {
+  width: 50px;
+}
+
+.edit-btn-container {
+  /* background: red; */
+  /* width: 70%;
+    display: flex;
+    justify-content: flex-end; */
+
+  transform: translateY(-0.5rem);
+}
+
+.spin-controller {
+  transform: translateY(2rem);
+}
+
+.spin-controller #spin-btn {
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: var(--background-color);
+  color: rgb(105, 105, 105);
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  outline: none;
+  transition: 3s;
+  user-select: none;
+}
+
+.spin-controller #spin-btn:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  box-shadow: inset 10px 10px 10px rgba(10, 99, 169, 0.16),
+    inset -10px -10px 10px rgba(255, 255, 255, 0.7);
+}
+
+#editItems-container {
+  background: var(--background-color);
+  height: 80vh;
+  padding-block: 1rem;
+  width: 80vw;
+  display: none;
+  /* outline: 1px solid rgb(0, 0, 0); */
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+  overflow: scroll;
+  scroll-behavior: smooth;
+
+  animation-name: roll-open;
+  animation-duration: 1s;
+  justify-content: flex-start;
+}
+
+#editItems-container::-webkit-scrollbar {
+  width: 0px;
+}
+
+#editItems-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+#current-items div .item-name {
+  display: inline-block;
+  background: var(--background-color);
+  margin: 10px;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(105, 105, 105);
+  border-radius: 16px;
+  box-shadow: 10px 10px 10px rgb(10 99 169 / 16%),
+    -10px -10px 10px rgb(255 255 255 / 70%);
+  text-align: center;
+  width: 15rem;
+}
+
+@media screen and (max-width: 404px) {
+  #current-items div .item-name {
+    width: 12rem;
+  }
+}
+
+#current-items div .remove-btn-div {
+  display: inline-block;
+}
+
+#current-items div .remove-btn-div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(234, 64, 64);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+}
+
+#current-items div .remove-btn-div button img {
+  width: 20px;
+  filter: invert(1);
+}
+
+#add-item-btn {
+  margin-top: 0.5rem;
+}
+
+#add-item-btn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+
+  background: rgb(194, 231, 255);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+}
+
+#add-item-btn button img {
+  width: 20px;
+}
+
+#editItems-container #done {
+  background: rgb(203, 250, 186);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(10, 99, 169, 0.16),
+    -10px -10px 10px rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  color: #333;
+}
+
+.save-btn-container {
+  /* width: 18.7rem; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  transform: translateX(-1rem);
+}

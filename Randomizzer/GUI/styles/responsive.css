@@ -1,0 +1,6 @@
+@media screen and (max-width: 404px) {
+  #current-items div .item-name {
+    width: 12rem;
+    background: red;
+  }
+}

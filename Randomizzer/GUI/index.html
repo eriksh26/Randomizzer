@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randomizer</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/favicon/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/spin-wheel.css">
+  <link rel="stylesheet" href="styles/toss.css">
+  <link rel="stylesheet" href="styles/animations.css">
+
+
+  <!-- scripts -->
+  <script defer src="scripts/app.js"></script>
+  <script defer src="scripts/spin-wheel/spin-wheel.js"></script>
+  <script defer src="scripts/spin-wheel/edit-menu.js"></script>
+  <script defer src="scripts/coin-toss/toss.js"></script>
+  <script src="scripts/lib/d3.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+  <!-- spin wheel  -->
+  <div id="spin-wheel-page" ontouchstart="p1handleTouchStart(event)" ontouchmove="p1handleTouchMove(event)"
+    ontouchend="p1handleTouchEnd(event)">
+
+
+    <div id="spin-container">
+      <div class="wheel-container">
+        <div id="chart"></div>
+        <div class="edit-btn-container">
+          <button id="edit-btn"><img src="assets/icons/edit-icon.svg" alt="Edit"></button>
+        </div>
+      </div>
+
+      <div class="spin-controller">
+        <div class="btn-container">
+          <button id="spin-btn">SPIN</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="editItems-container">
+      <div class="save-btn-container">
+        <button id="done">Save</button>
+      </div>
+      <!-- <div id="clear-items-btn">
+        <button id="clear-list">Clear</button>
+      </div> -->
+      <div>
+        <div id="current-items"> </div>
+        <div>
+          <div id="add-item-btn">
+            <button id="add-btn"><img src="assets/icons/add-icon.svg" alt="Add"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-item-wrapper">
+      <div id="addItem">
+        <label for="item">Add new item:</label>
+        <input autocomplete="off" type="text" id="item" name="item">
+        <div class="add-item-input-error-container">
+          <span id="add-item-input-error"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- App Updates  -->
+  <div id="update-container">
+    <span>Update Available</span>
+    <button id="update-btn">Install Update</button>
+  </div>
+
+  <!-- toss  -->
+  <div id="toss-page" ontouchstart="p2handleTouchStart(event)" ontouchmove="p2handleTouchMove(event)"
+    ontouchend="p2handleTouchEnd(event)">
+
+    <!-- sfx -->
+    <audio id="toss-sfx">
+      <source src="assets/sfx/coin-toss-sfx.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="toss__container">
+
+      <div class="toss__coin-container">
+        <div class="coin__heads">
+          <img src="assets/images/heads.svg" alt="heads">
+        </div>
+        <div class="coin__tails">
+          <img src="assets/images/tails.svg" alt="tails">
+        </div>
+      </div>
+
+      <div class="toss__button-container">
+        <button id="toss-btn">TOSS</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
