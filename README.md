@@ -12,7 +12,6 @@ It has a 'Spin Wheel' feature where you can add or remove items from the list an
 
 
 ## Installation
-Click on the following link to download the APK <br />
 
 Click on the "Code" icon located on the left side of the 'About section'. Git-clone the link in your terminal or download the zip file and extract it.
 
