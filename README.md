@@ -1,5 +1,5 @@
 # Randomizzer - Spin the Wheel
-<span>- Let the wheel decide your fortune!</span>
+<span>- Let the wheel decide your fortune! </span>
 
 ## Introduction
 Randomizzer is a simple web application created for fun.
